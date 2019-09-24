@@ -27,6 +27,8 @@ namespace Angular_netCore
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            var connection=@"USUARIO-PC\SQLEXPRESS;DataBase=AngularChat"
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
