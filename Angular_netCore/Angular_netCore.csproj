@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,12 +26,16 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\chat\chat.component.ts" />
+    <None Remove="ClientApp\src\app\Interfaces.ts" />
     <None Remove="ClientApp\src\app\message\message.component.ts" />
+    <None Remove="ClientApp\src\app\service\chat.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\chat\chat.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Interfaces.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\message\message.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\chat.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

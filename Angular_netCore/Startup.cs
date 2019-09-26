@@ -1,8 +1,10 @@
+using Angular_netCore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,7 +30,9 @@ namespace Angular_netCore
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            var connection=@"USUARIO-PC\SQLEXPRESS;DataBase=AngularChat"
+            var connection = @"Server=USUARIO-PC\SQLEXPRESS;Database=AngularChat;Trusted_Connection=True;ConnectRetryCount=0;";
+            services.AddDbContext<MyDbContext>(options => options.UseSqlServer(connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

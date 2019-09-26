@@ -1,2 +1,4 @@
-<app-message *ngFor="let message of lstMessages" [texto]="message">
+<app-message *ngFor="let message of lstMessages | async" [oMessage]="message">
 </app-message>
+
+{{ chatService.algo}}

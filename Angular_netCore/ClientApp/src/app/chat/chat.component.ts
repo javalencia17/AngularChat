@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { ChatService } from '../service/chat.service';
+import { Message } from '../Interfaces';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'chat-app',
@@ -6,6 +10,14 @@ import { Component } from '@angular/core';
 })
 
 export class ChatComponent {
-  public lstMessages: string[] = ['hola mundo', 'pepe pecas', 'pica capas', 'otro'];
+  public lstMessages: Observable<Message[]>;
 
+  constructor(protected chatService: ChatService)
+  {
+    this.getInfo()    
+  }
+  public getInfo() {
+    this.lstMessages = this.chatService.getMessage();
+  }
 }
+
